@@ -25,10 +25,11 @@ export default function RootLayout({ children }) {
         
               <li><Link href="/experience" className="nav-link">Experience</Link></li>
               <li><Link href="/contact" className="nav-link">Contact</Link></li>
+              <li><Link href="/blog" className="nav-link">Blog</Link></li>
             </ul>
           </nav>
         </header>
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center justify-between p-12">
           {children}
         </main>
       </body>

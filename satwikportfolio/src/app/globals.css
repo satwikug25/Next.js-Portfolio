@@ -107,4 +107,18 @@ button:active {
 }
 
 
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+
+
+.bg-noise {
+  background-image: url('data:image/png;base64,...'); /* Add your base64 noise image here */
+}
+
+body {
+  font-family: 'Courier Prime', monospace;
+}
+
+
+
 

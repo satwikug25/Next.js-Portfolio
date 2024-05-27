@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
             </ul>
           </nav>
         </header>
-        <main className="flex min-h-screen flex-col items-center justify-between p-12">
+        <main className="flex min-h-screen flex-col items-center justify-between p-0">
           {children}
         </main>
       </body>

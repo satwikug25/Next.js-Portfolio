@@ -10,11 +10,7 @@ import { Typewriter } from 'react-simple-typewriter';
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Satwik Mallajosyula's Portfolio</title>
-        <meta name="description" content="Welcome to Satwik Mallajosyula's portfolio. Discover my projects, experience, and skills." />
-      </Head>
-      <div className="min-h-screen flex items-center justify-center bg-navy-500 relative max-h-30">
+      <div className="min-h-screen flex items-center justify-center bg-navy-500 relative max-h-16">
         
         <div className="container mx-auto p-8 flex flex-col md:flex-row items-center bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg z-10">
           <motion.div
@@ -25,7 +21,7 @@ export default function Home() {
           >
             <h1 className="text-4xl font-bold text-white">Satwik Mallajosyula</h1>
             <p className="text-lg text-white mt-4">
-              I'm a&nbsp;
+              I&apos;m a 
               <span className="text-yellow-300">
                 <Typewriter
                   words={['Computer Science student', 'React Developer', 'Full Stack Developer', 'Software Engineer Intern']}
@@ -39,7 +35,7 @@ export default function Home() {
               </span>
             </p>
             <p className="text-lg text-white mt-4">
-              Welcome to my portfolio! I’m Satwik Mallajosyula, a Computer Science student at Arizona State University with a passion for developing innovative software solutions.
+              Welcome to my portfolio! I am Satwik Mallajosyula, a Computer Science student at Arizona State University with a passion for developing innovative software solutions.
             </p>
             <div className="mt-6">
               <Link href="/projects" passHref>

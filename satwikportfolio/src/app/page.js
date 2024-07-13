@@ -21,7 +21,7 @@ export default function Home() {
           >
             <h1 className="text-4xl font-bold text-white">Satwik Mallajosyula</h1>
             <p className="text-lg text-white mt-4">
-              I&apos;m a 
+              I&apos;m a  
               <span className="text-yellow-300">
                 <Typewriter
                   words={['Computer Science student', 'React Developer', 'Full Stack Developer', 'Software Engineer Intern']}

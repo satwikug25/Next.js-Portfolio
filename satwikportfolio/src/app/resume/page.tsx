@@ -8,7 +8,7 @@ const Resume = () => {
       </div>
       <div className="container mx-auto mt-10">
         <iframe
-          src="assets/Satwik_Resume_1.pdf"
+          src="/assets/Satwik_Mallajosyula.pdf"
           className="w-full h-[90vh] sm:h-[80vh] md:h-[85vh] lg:h-[90vh] xl:h-[95vh] border border-teal-300 shadow-lg rounded-lg"
           title="Satwik Mallajosyula's Resume"
           width="100%"

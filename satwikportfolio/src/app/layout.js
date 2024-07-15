@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import Link from 'next/link';
 import "./globals.css";
-
+import DockDemo from '../components/home/index'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -30,6 +30,7 @@ export default function RootLayout({ children }) {
           </nav>
         </header>
         <main className="flex min-h-screen flex-col items-center justify-between p-0">
+          <DockDemo/>
           {children}
         </main>
       </body>

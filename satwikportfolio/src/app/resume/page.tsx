@@ -2,10 +2,10 @@ import React from 'react'
 
 const Resume = () => {
   return (
-    <div className="container mx-auto mt-10 justify-center">
-      <div>
-        <h1 className='text-4xl font-bold'>Resume</h1>
-      </div>
+    <div className="container mx-auto mt-10 flex flex-col items-center">
+      
+        <h1 className='text-4xl font-bold text-center text-emerald-200'>Resume</h1>
+      
       <div className="container mx-auto mt-10">
         <iframe
           src="/assets/Satwik_Resume_1.pdf"

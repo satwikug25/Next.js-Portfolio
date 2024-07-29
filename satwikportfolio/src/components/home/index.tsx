@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 import { Dock, DockIcon } from "src/@/components/magicui/dock";
@@ -8,17 +9,8 @@ export function DockDemo() {
   return (
     <div className="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-emerald-50 bg-opacity-90 shadow-lg rounded-lg p-3 transition-transform duration-300 hover:translate-y-[-10px] z-50">
       <Dock direction="middle" className="border-none">
-        <DockIcon>
+        <DockIcon onClick={()=>{return (window.open('https://github.com/satwikug25','_blank'))}}>
           <Icons.gitHub className="w-6 h-6" />
-        </DockIcon>
-        <DockIcon>
-          <Icons.googleDrive className="w-6 h-6" />
-        </DockIcon>
-        <DockIcon>
-          <Icons.notion className="w-6 h-6" />
-        </DockIcon>
-        <DockIcon>
-          <Icons.whatsapp className="w-6 h-6" />
         </DockIcon>
       </Dock>
     </div>

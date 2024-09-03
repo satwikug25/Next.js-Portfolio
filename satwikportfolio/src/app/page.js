@@ -43,7 +43,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="mt-6">
-              <Link href="/assets/Satwik_Mallajosyula.pdf" passHref>
+              <Link href="/assets/Mallajosyula_Satwik_Resume.pdf" passHref>
                 <span className="text-yellow-300 hover:underline cursor-pointer" target="_blank" rel="noopener noreferrer">Download My Resume</span>
               </Link>
             </div>

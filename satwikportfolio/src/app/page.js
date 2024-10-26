@@ -6,12 +6,20 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Typewriter } from 'react-simple-typewriter';
-import GitHubCalendar from 'react-github-calendar';
+import dynamic from 'next/dynamic';
+
+// Dynamically import GitHubCalendar with ssr option set to false
+const GitHubCalendar = dynamic(
+  () => import('react-github-calendar'),
+  { ssr: false }
+);
 
 export default function Home() {
   const [totalContributions, setTotalContributions] = useState('Loading...');
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     fetch('/api/github-contributions')
       .then(response => response.json())
       .then(data => {
@@ -114,14 +122,20 @@ export default function Home() {
           className="mt-16 p-8 bg-black/20 backdrop-filter backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10"
         >
           <h2 className="text-3xl font-bold text-white mb-4">My GitHub Contributions</h2>
-          <p className="text-xl text-white mb-4">
-            Total Contributions Last Year: {totalContributions}
-          </p>
-          <GitHubCalendar 
-            username="satwikug25" 
-            colorScheme='dark'
-            fontSize={16}
-          />
+         
+          {isClient && (
+            <GitHubCalendar 
+              username="satwikug25" 
+              colorScheme='dark'
+              fontSize={16}
+              showWeekdayLabels
+              
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+              }}
+            />
+          )}
         </motion.div>
       </div>
     </>

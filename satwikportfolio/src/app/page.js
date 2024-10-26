@@ -1,16 +1,36 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Typewriter } from 'react-simple-typewriter';
+import GitHubCalendar from 'react-github-calendar';
 
 export default function Home() {
+  const [totalContributions, setTotalContributions] = useState('Loading...');
+
+  useEffect(() => {
+    fetch('/api/github-contributions')
+      .then(response => response.json())
+      .then(data => {
+        if (data.totalContributions) {
+          setTotalContributions(data.totalContributions);
+        } else {
+          console.error('Unexpected API response:', data);
+          setTotalContributions('Error fetching data');
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching GitHub contributions:', error);
+        setTotalContributions('Error fetching data');
+      });
+  }, []);
+
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black relative">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 to-black relative">
         
         <div className="container mx-auto p-8 flex flex-col md:flex-row items-center bg-black/20 backdrop-filter backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10">
           <motion.div
@@ -85,6 +105,24 @@ export default function Home() {
             />
           </motion.div>
         </div>
+        
+        {/* GitHub Contribution Map */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-16 p-8 bg-black/20 backdrop-filter backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10"
+        >
+          <h2 className="text-3xl font-bold text-white mb-4">My GitHub Contributions</h2>
+          <p className="text-xl text-white mb-4">
+            Total Contributions Last Year: {totalContributions}
+          </p>
+          <GitHubCalendar 
+            username="satwikug25" 
+            colorScheme='dark'
+            fontSize={16}
+          />
+        </motion.div>
       </div>
     </>
   );

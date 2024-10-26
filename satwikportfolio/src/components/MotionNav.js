@@ -19,7 +19,7 @@ const MotionNav = () => {
         </Link>
         <div className="flex items-center space-x-6">
           <ul className="flex space-x-6 text-white">
-            {['Home', 'Resume', 'Projects', 'Experience', 'Contact', 'Blog'].map((item) => (
+            {['Home', 'Resume', 'Projects', 'Experience', 'Contact'].map((item) => (
               <li key={item}>
                 <Link href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className="hover:text-gray-200 transition-colors duration-200">
                   {item}

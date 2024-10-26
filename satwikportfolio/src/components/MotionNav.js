@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const MotionNav = () => {
   return (
@@ -27,14 +27,24 @@ const MotionNav = () => {
               </li>
             ))}
           </ul>
-          <a 
-            href="https://github.com/satwikug25" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-white hover:text-gray-200 transition-colors duration-200"
-          >
-            <FaGithub size={24} />
-          </a>
+          <div className="flex space-x-4">
+            <a 
+              href="https://github.com/satwikug25" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white hover:text-gray-200 transition-colors duration-200"
+            >
+              <FaGithub size={24} />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/smallaj" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white hover:text-gray-200 transition-colors duration-200"
+            >
+              <FaLinkedin size={24} />
+            </a>
+          </div>
         </div>
       </div>
     </motion.nav>

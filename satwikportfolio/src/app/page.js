@@ -10,48 +10,70 @@ import { Typewriter } from 'react-simple-typewriter';
 export default function Home() {
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-navy-500 relative max-h-16">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black relative">
         
-        <div className="container mx-auto p-8 flex flex-col md:flex-row items-center bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg z-10">
+        <div className="container mx-auto p-8 flex flex-col md:flex-row items-center bg-black/20 backdrop-filter backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.16, 1, 0.3, 1] // Apple-like spring animation
+            }}
             className="text-center md:text-left md:w-1/2 p-4"
           >
-            <h1 className="text-4xl font-bold text-white">Satwik Mallajosyula</h1>
-            <p className="text-lg text-white mt-4">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              Satwik Mallajosyula
+            </h1>
+            <p className="text-xl text-white/90 mt-4 font-light">
               I&apos;m a  
-              <span className="text-yellow-300">
+              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                 <Typewriter
                   words={[' Computer Science Student @ ASU', ' React Developer', ' Full Stack Developer', ' Software Engineer Intern @ Axio AI']}
                   loop={0}
                   cursor
-                  cursorStyle='_'
+                  cursorStyle='|'
                   typeSpeed={70}
                   deleteSpeed={50}
                   delaySpeed={1000}
                 />
               </span>
             </p>
-            <p className="text-lg text-white mt-4">
+            <p className="text-lg text-white/80 mt-4 font-light leading-relaxed">
               Welcome to my portfolio! I am Satwik Mallajosyula, a Computer Science student at Arizona State University with a passion for developing innovative software solutions.
             </p>
-            <div className="mt-6">
+            <div className="mt-8 space-y-4">
               <Link href="/projects" passHref>
-                <span className="text-yellow-300 hover:underline cursor-pointer">View My Projects</span>
+                <motion.span 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block px-6 py-3 bg-white/10 rounded-full text-white hover:bg-white/20 transition-all duration-300 cursor-pointer backdrop-blur-sm"
+                >
+                  View My Projects
+                </motion.span>
               </Link>
-            </div>
-            <div className="mt-6">
-              <Link href="/assets/Mallajosyula_Satwik_Resume.pdf" passHref>
-                <span className="text-yellow-300 hover:underline cursor-pointer" target="_blank" rel="noopener noreferrer">Download My Resume</span>
-              </Link>
+              <div className="mt-4">
+                <Link href="/assets/Mallajosyula_Satwik_Resume.pdf" passHref>
+                  <motion.span 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="inline-block px-6 py-3 bg-blue-500/20 rounded-full text-blue-400 hover:bg-blue-500/30 transition-all duration-300 cursor-pointer backdrop-blur-sm"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    Download My Resume
+                  </motion.span>
+                </Link>
+              </div>
             </div>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 0.8, 
+              ease: [0.16, 1, 0.3, 1]
+            }}
             className="md:w-1/2 p-4 flex justify-center"
           >
             <Image 
@@ -59,7 +81,7 @@ export default function Home() {
               alt="Satwik Mallajosyula" 
               width={300} 
               height={300} 
-              className="rounded-full"
+              className="rounded-full ring-4 ring-white/10 shadow-2xl"
             />
           </motion.div>
         </div>

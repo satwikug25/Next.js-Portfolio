@@ -1,8 +1,15 @@
+import React from 'react';
 import { Inter } from "next/font/google";
-import Link from 'next/link';
 import "./globals.css";
-import DockDemo from '../components/home/index'
+import dynamic from 'next/dynamic';
+
+
 const inter = Inter({ subsets: ["latin"] });
+
+const MotionNav = dynamic(() => import('../components/MotionNav'), { 
+  ssr: false,
+  loading: () => <div className="h-16 bg-transparent"></div> // Transparent placeholder
+});
 
 export const metadata = {
   title: "Satwik Mallajosyula's Portfolio",
@@ -12,29 +19,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <header className="bg-gray-800 p-4">
-          <nav className="container mx-auto flex justify-between items-center">
-            <div className="text-white font-bold text-lg">
-              <Link href="/">Satwik Mallajosyula</Link>
-            </div>
-            <ul className="flex space-x-4 text-white">
-              <li><Link href="/" className="nav-link">Home</Link></li>
-              <li><Link href="/resume" className="nav-link">Resume</Link></li>
-              <li><Link href="/projects" className="nav-link">Projects</Link></li>
-        
-              <li><Link href="/experience" className="nav-link">Experience</Link></li>
-              <li><Link href="/contact" className="nav-link">Contact</Link></li>
-              <li><Link href="/blog" className="nav-link">Blog</Link></li>
-            </ul>
-          </nav>
+      <body className={`${inter.className} bg-gradient-to-b from-gray-900 to-black min-h-screen`}>
+        <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+          <MotionNav />
         </header>
-        <main className="flex min-h-screen flex-col items-center justify-between p-0">
-          <DockDemo/>
+        <main className="flex min-h-screen flex-col items-center justify-between pt-20 p-0">
           {children}
         </main>
       </body>
     </html>
   );
 }
-
